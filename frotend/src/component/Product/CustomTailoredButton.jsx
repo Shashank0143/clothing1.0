@@ -48,18 +48,18 @@ const CustomTailoredButton = ({onMeasurementsChange}) => {
   }
 
   const fields = [
-    { label: 'Length(लंबाई)', name: 'Length(लंबाई)'},
-    { label: 'Shoulder(कंधा)', name: 'Shoulder(कंधा)' },
-    { label: 'Chest(छाती)', name: 'Chest(छाती)' },
-    { label: 'Stomach(पेट)', name: 'Stomach(पेट)' },
-    { label: 'Sleeves(आस्तीन)', name: 'Sleeves(आस्तीन)' },
+    { label: 'Length(लंबाई)', name: 'Length'},
+    { label: 'Shoulder(कंधा)', name: 'shoulder' },
+    { label: 'Chest(छाती)', name: 'chest' },
+    { label: 'Stomach(पेट)', name: 'stomach' },
+    { label: 'Sleeves(आस्तीन)', name: 'sleeves' },
     { label: 'Hip', name: 'Hip' },
-    { label: 'Traousers length(पतलून की लंबाई)', name: 'Traousers length(पतलून की लंबाई)' },
-    { label: 'Waist(कमर)', name: 'Waist(कमर)' },
-    { label: 'Hip', name: 'Hip' },
-    { label: 'Thigh(जाँघ)', name: 'Thigh(जाँघ)' },
-    { label: 'Knee(घुटना)', name: 'Knee(घुटना)' },
-    { label: 'Hem(मोहरी)', name: 'Hem(मोहरी)' },
+    { label: 'Traousers length(पतलून की लंबाई)', name: 'traouserLength' },
+    { label: 'Waist(कमर)', name: 'waist' },
+    { label: 'Trouser Hip', name: 'trouserHip' },
+    { label: 'Thigh(जाँघ)', name: 'thigh' },
+    { label: 'Knee(घुटना)', name: 'knee' },
+    { label: 'Hem(मोहरी)', name: 'hem' },
   ];
 
   return (
@@ -67,7 +67,7 @@ const CustomTailoredButton = ({onMeasurementsChange}) => {
       <Button 
         variant="contained" 
         onClick={handleClickOpen}
-        style={{ backgroundColor: '#07161D', color: 'white' }}
+        style={{ backgroundColor: '#07161D', color: 'white', marginTop: '10px' }}
       >
         Custom Tailored
       </Button>

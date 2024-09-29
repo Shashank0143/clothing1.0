@@ -12,7 +12,7 @@ function ConfirmOrder() {
 
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
 
-  const { user , loading} = useSelector((state) => state.userData);
+  const { user, loading } = useSelector((state) => state.userData);
 
   const subTotal = cartItems.reduce((acc, currItem) => {
     return acc + currItem.quantity * currItem.price;
@@ -23,7 +23,7 @@ function ConfirmOrder() {
   const gst = subTotal * 0.18;
 
   const totalFinalPrice = subTotal + gst + shippingCharges;
-  
+
 
   const address = `${shippingInfo.address} , ${shippingInfo.city} ${shippingInfo.state} , ${shippingInfo.pinCode} , ${shippingInfo.country}`;
 
@@ -37,7 +37,7 @@ function ConfirmOrder() {
     // session storage allowd save data untill  browser tab is opend
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
 
-   
+
   }
 
   return (
@@ -46,7 +46,8 @@ function ConfirmOrder() {
         <Loader />
       ) : (
         <>
-          <MetaData title="Confirm Order" />
+          <MetaData title="Confirm Order"
+            link={"https://www.phbypriyanshu.com/order/confirm"} />
           <CheckoutSteps activeStep={1} />
           <div className="confirmOrderPage">
             {/* left container  */}

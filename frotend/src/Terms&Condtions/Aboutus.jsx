@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Container, Grid} from "@mui/material";
+import { Typography, Container, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import MetaData from "../component/layouts/MataData/MataData";
 import AboutImage1 from "../Image/about/about-Img_1.jpg";
@@ -104,15 +104,16 @@ const About_UsPage = () => {
   return (
     <>
       <div className={classes.about_us}>
-        <MetaData title={"About Us"} />
+        <MetaData title={"About Us"}
+          link={"https://phbypriyanshu.com/about_us"} />
         <Container className={classes.container_12}>
-        <Typography
-                variant="h2"
-                component="h1"
-                className={classes.title_about}
-              >
-                About Us
-              </Typography>
+          <Typography
+            variant="h2"
+            component="h1"
+            className={classes.title_about}
+          >
+            About Us
+          </Typography>
           <Grid container spacing={4} justifyContent="center">
             <Grid item xs={12} sm={6}>
               <img
@@ -133,7 +134,7 @@ const About_UsPage = () => {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6}>
-            <Typography variant="body1" className={classes.introText_about}>
+              <Typography variant="body1" className={classes.introText_about}>
                 Mr. Priyanshu Pandey, recognized at the 2019 DLF Emporio Designer Awards, is celebrated for his creativity and innovation in fashion. A graduate of NIFT and Amity University, he established his brand P&H by Priyanshu with a strong foundation in design, refined through collaborations with prestigious fashion houses like Marie Claire Paris, Manish Malhotra, and Nitin Bal Chauhan.
 
                 Priyanshu Pandey's designs are renowned for their meticulous craftsmanship, intricate details, and a modern interpretation of global fashion trends. His distinctive style effortlessly blends traditional artistry with contemporary elegance, appealing to a discerning clientele.

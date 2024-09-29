@@ -35,7 +35,11 @@ function Home() {
       ) : (
         <>
           <>
-            <MataData title="P&H by Priyanshu" />
+          <MataData 
+            title="Shop Designer & Trending Suits online | P&H BY PRIYANSHU" 
+            description="Suggested Description	P&H by Priyanshu would be your one stop store to buy professional, Designer & trending suits online, for men's & women's both. Visit the site & get new offers."
+            link="https://phbypriyanshu.com/"
+            />
             <div className="Home_Page">
               <div className="headerblank"></div>
               <div className="heroSlider_Home">

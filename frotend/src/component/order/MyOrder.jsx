@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     padding: "2rem",
     marginBottom: "1rem",
-   flexDirection: "column",
-   alignItems: "center",
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "center",
     display: "flex",
     marginTop: "7rem",
-   
+
   },
   orderPageTitle: {
     fontSize: "1.2rem",
@@ -57,7 +57,8 @@ const MyOrder = () => {
         <CricketBallLoader />
       ) : (
         <div>
-          <MetaData title="My Orders" />
+          <MetaData title="My Orders"
+            link={"https://www.phbypriyanshu.com/orders"} />
           <div className={classes.orderPageContainer}>
             <Typography variant="h6" className={classes.orderPageTitle}>
               Your Order

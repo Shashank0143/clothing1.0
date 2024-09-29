@@ -38,7 +38,9 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem 0",
     width: "100%",
     backgroundColor: "white",
-    overFlow: "hidden",
+    [theme.breakpoints.down(768)]: {
+      width: "100%",
+    }
   },
 
   paymentPage__container: {
@@ -47,27 +49,25 @@ const useStyles = makeStyles((theme) => ({
     boxSize: "border-box",
     justifyContent: "space-around",
     [theme.breakpoints.down("sm")]: {
-      flexDirection: "column-reverse",
+      flexDirection: "column",
       alignItems: "center",
     },
   },
 
   PaymentBox: {
+
     padding: "1rem",
     display: "flex",
     flexDirection: "column",
-    paddingLeftLeft: "0.5rem",
     overFlow: "hidden",
     backgroundColor: "white",
     width: "50%",
     [theme.breakpoints.down("sm")]: {
-      width: "90%",
-      marginTop: "1rem",
-      padding: "2rem",
+      width: "80%",
     },
   },
   PaymentHeading: {
-    fontWeight: "800",
+    fontWeight: "700",
     marginBottom: "1rem",
     fontSize: "1.5rem",
     textTransform: "uppercase",
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     fontWeight: "300",
     backgroundColor: "#f5f5f5 !important",
-    width: "90%",
+    width: "100%",
     padding: "1rem",
     gap: "0.8rem",
     marginBottom: "1rem",
@@ -178,6 +178,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#00000080",
     },
+    [theme.breakpoints.down(768)]: {
+      width: "100%",
+
+    }
   },
   termsAndConditionsText: {
     fontFamily: "century-gothic",
@@ -195,6 +199,9 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "red",
     },
+    [theme.breakpoints.down(768)]: {
+      fontSize: "12px"
+    }
   },
   paymentInput: {
     width: "95%",
@@ -258,7 +265,6 @@ const useStyles = makeStyles((theme) => ({
     width: "40%",
     [theme.breakpoints.down("sm")]: {
       width: "90%",
-      padding: "2rem",
     },
   },
   order_Details: {
@@ -267,14 +273,18 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     padding: "2rem 0.5rem 2rem 0.5rem",
     [theme.breakpoints.down("sm")]: {
-      width: "90%",
-      padding: "2rem",
+      width: "100%",
+      padding: "0",
     },
   },
   orderSub_heading: {
     fontWeight: "600",
     fontSize: "1.5rem",
     marginBottom: "10px",
+    [theme.breakpoints.down(768)]: {
+      fontSize: "1rem",
+    }
+
   },
   boldDivider: {
     borderBottom: `0.3px solid #3A3E3A`,
@@ -284,11 +294,10 @@ const useStyles = makeStyles((theme) => ({
   shipping_Deatils: {
     display: "flex",
     flexDirection: "column",
-    width: "98%",
+    width: "100%",
     padding: "1rem 1px",
     [theme.breakpoints.down("sm")]: {
       width: "90%",
-      padding: "1rem 2rem",
     },
   },
   shipping_Address: {
@@ -337,6 +346,16 @@ const PaymentComponent = () => {
   const [isValid, setIsValid] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState("online");
   // const [showDummyCard, setShowDummyCard] = useState(false);
+
+  const [hasCustomMeasurements, setHasCustomMeasurements] = useState(false); // State to track if any item has custom measurements
+
+  useEffect(() => {
+    // Check if any item in the cart has custom measurements
+    const customMeasurementItem = cartItems.some(
+      (item) => Object.keys(item.measurements || {}).length > 0
+    );
+    setHasCustomMeasurements(customMeasurementItem);
+  }, [cartItems]);
 
 
   const subTotal = cartItems.reduce((acc, currItem) => {
@@ -505,18 +524,18 @@ const PaymentComponent = () => {
 
   return (
     <>
-
       <div className={classes.payemntPage}>
         <CheckoutSteps activeStep={2} />
-        <MetaData title={"Payment"} />
+        <MetaData title={"Payment"} 
+        link="https://www.phbypriyanshu.com/process/payment"/>
+
         <div className={classes.paymentPage__container}>
           <div className={classes.PaymentBox}>
             <Typography
               variant="h5"
               component="h1"
-              className={classes.PaymentHeading}
-            >
-              Payment method
+              className={classes.PaymentHeading}>
+              Payment Method
             </Typography>
             <div className={classes.order_Details}>
               <h5 className={classes.orderSub_heading}>ORDER DETAILS</h5>
@@ -533,59 +552,8 @@ const PaymentComponent = () => {
                 ))}
             </div>
 
-            <div className={classes.shipping_Deatils}>
-              <Typography
-                variant="h6"
-                className={classes.orderSub_heading}
-                style={{ marginTop: "5px" }}
-              >
-                BILLING DETAILS
-              </Typography>
 
-              <div className={classes.shipping_Address}>
-                <div className={classes.shipping_Address_Details}>
-                  <Typography
-                    variant="subtitle2"
-                    style={{ fontSize: "16px", fontWeight: 400 }}
-                  >
-                    {user.name}
-                  </Typography>
-                  <Typography
-                    variant="subtitle2"
-                    style={{ fontSize: "16px", fontWeight: 400 }}
-                  >
-                    {address}
-                  </Typography>
-                </div>
-                <div className={classes.shipping_Address_edit}>
-                  <EditIcon
-                    className={classes.editIcon}
-                    onClick={() => {
-                      history.push("/shipping");
-                    }}
-                  />
-                </div>
-              </div>
-              <Typography
-                variant="subtitle2"
-                className={classes.mobileNo}
-                style={{
-                  fontWeight: 400,
-                  marginTop: "-5px",
-                  fontSize: "16px",
-                }}
-              >
-                {shippingInfo.phoneNo},
-              </Typography>
 
-              <Typography
-                variant="subtitle2"
-                className={classes.emailAddress}
-                style={{ fontWeight: 400, fontSize: "16px" }}
-              >
-                {user.email}
-              </Typography>
-            </div>
             <Typography
               variant="subtitle2"
               gutterBottom
@@ -603,10 +571,11 @@ const PaymentComponent = () => {
             >
               By clicking "Place Order", you agree to our
               <Link href="#" className={classes.privacyText}>
-                Fashion Clothing Terms & Conditions
+                P&H by Priyanshu Terms & Conditions
               </Link>
             </Typography>
-            <FormControl component="fieldset" style={{marginTop:"10px"}}>
+
+            <FormControl component="fieldset" style={{ marginTop: "10px" }}>
               <RadioGroup
                 aria-label="payment method"
                 name="paymentMethod"
@@ -614,7 +583,9 @@ const PaymentComponent = () => {
                 onChange={(e) => setPaymentMethod(e.target.value)}
               >
                 <FormControlLabel value="online" control={<Radio />} label="Pay Online (Razorpay)" />
-                <FormControlLabel value="cod" control={<Radio />} label="Cash on Delivery (COD)" />
+                {!hasCustomMeasurements && (
+                  <FormControlLabel value="cod" control={<Radio />} label="Cash on Delivery (COD)" />
+                )}
               </RadioGroup>
             </FormControl>
             <Button
@@ -622,7 +593,7 @@ const PaymentComponent = () => {
               className={classes.placeOrderBtn}
               fullWidth
               // disabled={isDisable}
-              style={{ marginTop: "3rem" }}
+              style={{ marginTop: "3rem", marginLeft: "auto", marginRight: "auto" }}
               onClick={paymentSubmitHandler}
             >
               Place Order
@@ -637,7 +608,7 @@ const PaymentComponent = () => {
               <div className="order_summary_details">
                 <div className="price order_Summary_Item" style={{ marginTop: "3px" }} >
                   <span>Original Price</span>
-                  {/* ORIGINAL PRICE TOATAL */}
+
                   <p>{totalPrice}</p>
                 </div>
 
@@ -656,7 +627,7 @@ const PaymentComponent = () => {
                 </div>
 
                 <div className="separator_cart"></div>
-                {/* Add Payment Method Selection */}
+
                 <div className="total_price order_Summary_Item">
                   <div>
                     <h4>Total Price</h4>
@@ -718,19 +689,21 @@ const PaymentComponent = () => {
                 className="paymentImg"
               />
             </div>
+
             <Divider className={classes.boldDivider} />
             <div className={classes.shipping_Deatils}>
-              <Typography variant="h6" className={classes.orderSub_heading}>
-                DELIVERY ADDRESS
+              <Typography
+                variant="h6"
+                className={classes.orderSub_heading}>
+                BILLING DETAILS
               </Typography>
-
               <div className={classes.shipping_Address}>
                 <div className={classes.shipping_Address_Details}>
                   <Typography
                     variant="subtitle2"
                     style={{ fontSize: "16px", fontWeight: 400 }}
                   >
-                    {user.name && user.name}
+                    {user.name}
                   </Typography>
                   <Typography
                     variant="subtitle2"
@@ -771,6 +744,7 @@ const PaymentComponent = () => {
           </div>
         </div>
       </div>
+
 
     </>
   );

@@ -66,8 +66,8 @@ function Header() {
   return (
     <>
       <div className="header">
-        {/* <div className="headerTop">
-          <div className="headerTopLeft">
+        <div className="headerTop">
+          {/* <div className="headerTopLeft">
             <p>We Offer's Free Shipping </p>
           </div>
           <div className="headerTopRight">
@@ -101,8 +101,9 @@ function Header() {
                 </Link>
               )}
             </div>
-          </div>
-        </div> */}
+          </div> */}
+          <div className="marquee-text">Flat 60% Off on All Products! Limited Time Offer!</div>
+        </div>
 
         {/* nav */}
         <div className="headerBottom">

@@ -78,16 +78,16 @@ function Products() {
 
 
 
-const [selectedRating, setSelectedRating] = React.useState("all");
+  const [selectedRating, setSelectedRating] = React.useState("all");
 
-const handleRatingChange = (event) => {
-  setRatings(event.target.value);
-  setSelectedRating(event.target.value);
-  // Trigger filtering with the selected rating value or perform any other action
-  
-};
+  const handleRatingChange = (event) => {
+    setRatings(event.target.value);
+    setSelectedRating(event.target.value);
+    // Trigger filtering with the selected rating value or perform any other action
 
- 
+  };
+
+
 
   return (
     <>
@@ -95,7 +95,9 @@ const handleRatingChange = (event) => {
         <Loader />
       ) : (
         <>
-          <MetaData title="PRODUCTS" />
+          <MetaData title="PRODUCTS"
+            link="https://phbypriyanshu.com/products"
+          />
           {products === undefined || products.length === 0 ? (
             <>
               <div
@@ -127,7 +129,7 @@ const handleRatingChange = (event) => {
             <div className="productPage">
               <div className="prodcutPageTop">
                 <div className="filterBox">
-                  
+
                   {/* <div className="priceFilter">
                     <Typography
                       style={{
@@ -282,24 +284,24 @@ const handleRatingChange = (event) => {
               </div>
 
               {/* Pagination */}
-       
-                <div className="paginationBox">
-                  <Pagination
-                    activePage={currentPage}
-                    itemsCountPerPage={resultPerPage}
-                    totalItemsCount={productsCount}
-                    onChange={setCurrentPageNoHandler}
-                    nextPageText="Next"
-                    prevPageText="Prev"
-                    firstPageText="First"
-                    lastPageText="Last"
-                    itemClass="page-item"
-                    linkClass="page-link"
-                    activeClass="pageItemActive"
-                    activeLinkClass="pageLinkActive"
-                  />
-                </div>
-             
+
+              <div className="paginationBox">
+                <Pagination
+                  activePage={currentPage}
+                  itemsCountPerPage={resultPerPage}
+                  totalItemsCount={productsCount}
+                  onChange={setCurrentPageNoHandler}
+                  nextPageText="Next"
+                  prevPageText="Prev"
+                  firstPageText="First"
+                  lastPageText="Last"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                  activeClass="pageItemActive"
+                  activeLinkClass="pageLinkActive"
+                />
+              </div>
+
             </div>
           )}
         </>

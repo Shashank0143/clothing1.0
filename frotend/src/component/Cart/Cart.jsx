@@ -62,7 +62,7 @@ const Cart = () => {
   };
 
   const checkoutHandler = () => {
-   
+
     history.push("/login?redirect=/shipping");
   };
 
@@ -73,9 +73,9 @@ const Cart = () => {
     0
   );
   let discount = cartItems.reduce(
-    (acc, item) => acc + item.discount,0
+    (acc, item) => acc + item.discount, 0
   )
-  let discountedPrice = generateDiscountedPrice(totalPrice, discount );
+  let discountedPrice = generateDiscountedPrice(totalPrice, discount);
   let totalDiscount = totalPrice - discountedPrice;
   let final = totalPrice - totalDiscount;
   final = dispalyMoney(final);
@@ -84,7 +84,10 @@ const Cart = () => {
   return (
     <>
       <div className="cartPage">
-  <MetaData title="Your Cart" />  
+        <MetaData 
+        title="Cart" 
+        link="https://www.phbypriyanshu.com/cart"
+        />
         <div className="cart_HeaderTop">
           <div className="headerLeft">
             <Typography variant="h5" component="h1" className="cartHeading">
@@ -133,13 +136,13 @@ const Cart = () => {
                       style={{ textDecoration: "none", color: "none" }}
                     >
                       <CartItem
-                        key={item.productId} 
+                        key={item.productId}
                         item={item}
                         deleteCartItems={deleteCartItems}
                         decreaseQuantity={decreaseQuantity}
                         increaseQuantity={increaseQuantity}
                         length={cartItems.length}
-                        id = {item.productId}
+                        id={item.productId}
                       />
                     </Link>
                   ))}
@@ -153,20 +156,20 @@ const Cart = () => {
                     {cartItems.length > 1 ? "items" : "item"} )
                   </h4>
                   <div className="order_summary_details">
-                    <div className="price order_Summary_Item" style={{marginTop: "5px"}}>
+                    <div className="price order_Summary_Item" style={{ marginTop: "5px" }}>
                       <span>Original Price</span>
                       {/* ORIGINAL PRICE TOATAL */}
                       <p>{totalPrice}</p>
                     </div>
 
-                    <div className="discount order_Summary_Item" style={{marginTop: "5px"}}>
+                    <div className="discount order_Summary_Item" style={{ marginTop: "5px" }}>
                       <span>Discount</span>
                       <p>
                         - {totalDiscount}
                       </p>
                     </div>
 
-                    <div className="delivery order_Summary_Item" style={{marginTop: "5px"}}>
+                    <div className="delivery order_Summary_Item" style={{ marginTop: "5px" }}>
                       <span>Delivery</span>
                       <p>
                         <b>Free</b>
@@ -199,9 +202,8 @@ const Cart = () => {
 
                 <div className="coupon-box-wrapper">
                   <div
-                    className={`coupon-box-content ${
-                      isFocused ? "focused" : ""
-                    }`}
+                    className={`coupon-box-content ${isFocused ? "focused" : ""
+                      }`}
                   >
                     <TextField
                       label="Enter coupon code"

@@ -5,7 +5,8 @@ import TermsImage from "../Image/about/tc.jpg";
 const TermsAndConditionsPage = () => {
   return (
     <div className="terms-container">
-      <MetaData title="Terms and Conditions" />
+      <MetaData title="Terms and Conditions"
+        link={"https://phbypriyanshu.com/terms/conditions"} />
       <img
         src={TermsImage}
         alt="Terms and Conditions"

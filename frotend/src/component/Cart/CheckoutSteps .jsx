@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginBottom: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
-      marginBottom: theme.spacing(1),
+      marginBottom: theme.spacing(.5),
     },
     [theme.breakpoints.down("xm")]: {
       fontSize: 12,
@@ -42,16 +42,15 @@ const ColorlibConnector = withStyles((theme) => ({
 const useColorlibStepIconStyles = makeStyles((theme) => ({
   stepReader :{
    
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: "-2rem",
-    },
+    // [theme.breakpoints.down("xs")]: {
+    //   marginLeft: "-2rem",
+    // },
   },
   root: {
     backgroundColor: "#000000",
-    zIndex: 1,
     color: "#FFFFFF",
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     display: "flex",
     borderRadius: "50%",
     justifyContent: "center",
@@ -59,16 +58,16 @@ const useColorlibStepIconStyles = makeStyles((theme) => ({
     border: `2px solid ${theme.palette.background.paper}`,
     fontSize: 16,
     cursor: "pointer",
-    margin: 0,
+    margin: "-0.2em",
     [theme.breakpoints.down("sm")]: {
-      width: 20,
-      height: 20,
-      fontSize: 14,
+      width: 10,
+      height: 10,
+      fontSize: 8,
     },
     [theme.breakpoints.down("xs")]: {
-      width: 15,
-      height: 15,
-      fontSize: 12,
+      width: 10,
+      height: 10,
+      fontSize: 8,
        
       "& .MuiStepLabel-label": {
         fontSize: 12,
@@ -82,7 +81,7 @@ const useColorlibStepIconStyles = makeStyles((theme) => ({
   },
   completed: {
     backgroundColor: "#000000",
-    margin: "0rem",
+    margin: "-0.2rem",
   },
 
   stepLabel: {
@@ -91,9 +90,12 @@ const useColorlibStepIconStyles = makeStyles((theme) => ({
       "&.MuiStepLabel-label ": {
         fontSize: 12,
       },
-      fontSize: 12,
+      fontSize: "3rem",
     },
   },
+  para: {
+    fontSize: 50,
+  }
 }));
 
 const ColorlibStepIcon = ({ active, completed, icon, onClick }) => {
@@ -133,7 +135,7 @@ const CheckoutSteps = ({ activeStep }) => {
   };
 
   return (
-    <div className={classes.stepReader} style={{ marginTop: "7rem" }}>
+    <div className={classes.stepReader} style={{ marginTop: "5rem" }}>
       <div className={classes.root}>
         <Stepper activeStep={activeStep} connector={<ColorlibConnector />}>
           {steps.map((step, index) => (
@@ -143,7 +145,7 @@ const CheckoutSteps = ({ activeStep }) => {
                 onClick={() => handleStepClick(index)}
                 className={classes.stepLabel}
               >
-                {step.label}
+                <h5 className={classes.para}>{step.label}</h5>
               </StepLabel>
             </Step>
           ))}

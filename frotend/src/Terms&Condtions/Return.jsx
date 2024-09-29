@@ -6,7 +6,8 @@ import TermsImage from "../Image/about/tc.jpg";
 const ReturnPolicyPage = () => {
   return (
     <div className="container__0">
-      <MetaData title="Return Policy" />
+      <MetaData title="Return Policy"
+        link={"https://phbypriyanshu.com/policy/return"} />
       <div className="image-container">
         <img
           src={TermsImage}

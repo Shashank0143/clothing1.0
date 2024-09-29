@@ -186,7 +186,8 @@ const ContactForm = () => {
 
   return (
     <Box className={classes.root_contactus}>
-      <MetaData  title={"Contact Us"}/>
+      <MetaData  title={"Contact Us"}
+      link={"https://phbypriyanshu.com/contact"}/>
       <div className={classes.contact_Container_contactus}>
         <Typography variant="h2" className={classes.title_contact_us}>
           Contact Us

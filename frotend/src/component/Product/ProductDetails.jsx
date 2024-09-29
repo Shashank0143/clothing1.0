@@ -135,7 +135,8 @@ const ProductDetails = () => {
       ) : (
         <>
           <div className="prodcutDetialsContainer">
-            <MetaData title={product.name} />
+            <MetaData title={product.name} 
+            link={`https://www.phbypriyanshu.com/product/66dc110ba2e362e49fab4de8/${product.name}`}/>
             <section id="product_details" className="section">
               <div className="product_container">
                 <div className="wrapper prod_details_wrapper">

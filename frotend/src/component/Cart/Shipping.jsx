@@ -185,7 +185,8 @@ const [isPhoneNoValid, setIsPhoneNoValid] = React.useState(true);
   return (
     <>
       <div className="shippingPage">
-        <MetaData title={"Shipping Info"} />
+      <MetaData title={"Shipping Info"} 
+        link={"https://www.phbypriyanshu.com/shipping"}/>
         <CheckoutSteps activeStep={1} />
 
         <div className="shippingPage__container">

@@ -1,4 +1,31 @@
 /* Style for the dropdown */
+
+.marquee-container {
+  padding: 10px 0;
+
+}
+
+.marquee-text {
+  color: white;
+  font-size: 15px; 
+  font-weight: bold;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  animation: marquee 35s linear infinite;
+}
+
+
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
 .headerBottom_navMenu ul {
   list-style: none;
   padding: 0;

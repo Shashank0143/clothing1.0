@@ -52,8 +52,11 @@ const ProductDetails = () => {
   const navigate = useHistory();
 
   useEffect(() => {
-    if (performance.navigation.type !== performance.navigation.TYPE_RELOAD) {
-      // If the page is not reloaded yet, reload it
+    const navigationEntries = window.performance.getEntriesByType("navigation");
+  
+    // Check if this is the first time the page is being loaded (not a reload)
+    if (navigationEntries.length > 0 && navigationEntries[0].type !== "reload") {
+      // If the page was not reloaded, reload it
       window.location.reload();
     }
   }, []);

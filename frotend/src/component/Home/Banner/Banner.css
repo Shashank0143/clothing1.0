@@ -1,0 +1,58 @@
+/* Banner.css */
+.banner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .banner-content {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .banner-content h1 {
+    font-size: 3rem;
+  }
+  
+  .banner-content p {
+    font-size: 1.5rem;
+  }
+  
+  .shop-now-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .banner {
+      height: 40vh;
+    }
+  
+    .banner-content h1 {
+      font-size: 2rem;
+    }
+  
+    .banner-content p {
+      font-size: 1rem;
+    }
+  
+    .shop-now-btn {
+      font-size: 1rem;
+    }
+  }
+  

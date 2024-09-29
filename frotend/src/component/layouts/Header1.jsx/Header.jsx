@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState } from "react";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import SearchBar from "./Searchbar";
 import "./Header.css";
@@ -8,12 +8,10 @@ import CartIcon from "./CartIcon";
 // import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-
+import Sidebar from "./Sidebar";
 import { useSelector } from "react-redux";
 
-const Sidebar = React.lazy(() => import("./Sidebar"));
-const ProfileModal = React.lazy(() => import("./ProfileModel"));
-
+import ProfileModal from "./ProfileModel";
 
 function Header() {
   const history = useHistory();
@@ -25,13 +23,6 @@ function Header() {
   const [sideMenu, setSideMenu] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-
-
-  useEffect(() => {
-    return () => {
-      setSideMenu(false); // Close the sidebar when component unmounts
-    };
-  }, []);
   // this is for handle sideBar
   const handleSideBarMenu = () => {
     setSideMenu(!sideMenu);
@@ -131,13 +122,11 @@ function Header() {
                   }}
                 />
                 {sideMenu && (
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <Sidebar
-                      handleSideBarMenu={handleSideBarMenu}
-                      isAuthenticated={isAuthenticated}
-                      user={user}
-                    />
-                  </Suspense>
+                  <Sidebar
+                    handleSideBarMenu={handleSideBarMenu}
+                    isAuthenticated={isAuthenticated}
+                    user={user}
+                  />
                 )}
               </span>
               <span>
@@ -227,10 +216,12 @@ function Header() {
               </Link>
             </span>
             <span>
-            {isAuthenticated && user && (
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ProfileModal user={user} isAuthenticated={isAuthenticated} />
-                </Suspense>
+            {isAuthenticated ? (
+                <ProfileModal user={user} isAuthenticated={isAuthenticated} />
+              ) : (
+                <Link to="/login" style={{ color: "white", textDecoration: "none" }}>
+                  Login
+                </Link>
               )}
             </span>
           </div>

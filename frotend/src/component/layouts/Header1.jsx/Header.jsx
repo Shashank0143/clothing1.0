@@ -216,7 +216,7 @@ function Header() {
               </Link>
             </span>
             <span>
-            {isAuthenticated ? (
+            {isAuthenticated && user ? (
                 <ProfileModal user={user} isAuthenticated={isAuthenticated} />
               ) : (
                 <Link to="/login" style={{ color: "white", textDecoration: "none" }}>

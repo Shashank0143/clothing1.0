@@ -51,15 +51,17 @@ const ProductDetails = () => {
 
   const navigate = useHistory();
 
+  const history = useHistory();
+
   useEffect(() => {
     const navigationEntries = window.performance.getEntriesByType("navigation");
-  
+
     // Check if this is the first time the page is being loaded (not a reload)
     if (navigationEntries.length > 0 && navigationEntries[0].type !== "reload") {
-      // If the page was not reloaded, reload it
-      window.location.reload();
+      // Redirect to home page
+      history.push("/");
     }
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     if (error) {

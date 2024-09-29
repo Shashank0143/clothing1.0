@@ -18,7 +18,6 @@ import "./SideBar.css";
 const Sidebar = ({ handleSideBarMenu, isAuthenticated, user }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
-
   const [isCategoriesOpen, setCategoriesOpen] = useState(false);
 
   const logOutHandler = () => {
@@ -27,19 +26,15 @@ const Sidebar = ({ handleSideBarMenu, isAuthenticated, user }) => {
     handleSideBarMenu();
   };
 
-  // Submenu for Categories
+  // Submenu for Categories 
   const categoriesSubMenu = [
-    { name: "Men Suits", path: "#" },
-    { name: "Women Suits", path: "#" },
-    { name: "Blazers", path: "#" },
-    { name: "T-Shirts", path: "#" },
-    { name: "Formals", path: "#" },
-    { name: "Pajamas", path: "#" },
-    { name: "Jodhpuri Suits", path: "#" },
-    { name: "Kurta Set", path: "#" },
-    { name: "Sherwani", path: "#" },
-    { name: "Shirts & Trousers", path: "#" },
-    { name: "HighWaist Trousers", path: "#" },
+    { name: "Men Suits", path: `/category/men-suits` },
+    { name: "Women Suits", path: `/category/women-suits` },
+    { name: "Blazers", path: `/category/blazers` },
+    { name: "T-Shirts", path: `/category/t-shirts` },
+    { name: "Designer's Choice", path: `/category/designer-choice` },
+    { name: "Jodhpuri Suits", path: `/category/jodhpuri-suits` },
+    { name: "Kurta Set", path: `/category/kurta-set` },
   ];
 
   const toggleCategories = () => {
@@ -52,7 +47,8 @@ const Sidebar = ({ handleSideBarMenu, isAuthenticated, user }) => {
         <CloseIcon />
       </button>
       <ul className="sidebar-menu">
-        {isAuthenticated && user.role === "admin" && (
+        {/* Conditional check to ensure user exists before accessing role */}
+        {isAuthenticated && user?.role === "admin" && (
           <Link
             to="/admin/dashboard"
             style={{ color: "inherit", textDecoration: "none" }}

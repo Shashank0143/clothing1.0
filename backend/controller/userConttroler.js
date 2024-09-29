@@ -201,7 +201,7 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
 });
 
 //// Get User Detail  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-exports.getUserDetails = asyncWrapper(async (req, res) => {
+exports.getUserDetails = asyncWrapper(async (req, res, next) => {
 
   if (!req.user || !req.user.id) {
     return next(new ErrorHandler("User not authenticated", 401)); // Handle unauthenticated access

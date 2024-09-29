@@ -203,6 +203,10 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
 //// Get User Detail  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.getUserDetails = asyncWrapper(async (req, res) => {
 
+  if (!req.user || !req.user.id) {
+    return next(new ErrorHandler("User not authenticated", 401)); // Handle unauthenticated access
+  }
+
   const user = await userModel.findById(req.user.id); // user.id because we set that user into as user.req when user gose autentiction. becauae all data of users set into req.user. only user when logged in then access this function
   res.status(200).json({
     success: true,
@@ -212,6 +216,10 @@ exports.getUserDetails = asyncWrapper(async (req, res) => {
 
 // update User password>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.updatePassword = asyncWrapper(async (req, res, next) => {
+
+  if (!req.user || !req.user.id) {
+    return next(new ErrorHandler("User not authenticated", 401)); // Handle unauthenticated access
+  }
   const user = await userModel.findById(req.user.id).select("+password"); // + password because pass not allowed in shcema to acsess
    
   const isPasswordMatched = await user.comparePassword(req.body.oldPassword); // user.comparePassword this method define in user Schema  for comapre given normal pass to savde hash pass
@@ -231,6 +239,10 @@ exports.updatePassword = asyncWrapper(async (req, res, next) => {
 
 //>>>>>> Update user Profile>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.updateProfile = asyncWrapper(async (req, res, next) => {
+
+  if (!req.user || !req.user.id) {
+    return next(new ErrorHandler("User not authenticated", 401));
+  }
   // object with user new data
   const newUserData = {
     name: req.body.name,

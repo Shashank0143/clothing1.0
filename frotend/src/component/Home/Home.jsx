@@ -60,7 +60,7 @@ function Home() {
                 {/* {products &&
                   <FeaturedSlider products={products} />} */}
               </div>
-              <h2 className="trending_heading">Trending Products</h2>
+              <h1 className="trending_heading cormorant-garamond-regular">Shop Our Customize suits designs in your size</h1>
               <div className="trending-products">
               {products &&
                   products

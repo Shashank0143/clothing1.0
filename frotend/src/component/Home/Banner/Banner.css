@@ -1,13 +1,18 @@
 /* Banner.css */
 .banner {
     width: 100%;
-    height: 100vh;
+    height: 12  0vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
-  
+
+  .banner img {
+    width: 100%;
+  }
   .banner-image {
     width: 100%;
     height: 100%;
@@ -40,9 +45,15 @@
   
   @media (max-width: 768px) {
     .banner {
+      width: 100%;
       height: 40vh;
     }
   
+    .banner-image {
+      width: 60%;
+      height: 70%;
+      object-fit: cover;
+    }
     .banner-content h1 {
       font-size: 2rem;
     }

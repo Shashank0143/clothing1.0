@@ -27,9 +27,6 @@ const slides = [
     image: require("../../Image/Banner/Desktop/2.jpeg"),
   },
   {
-    image: require("../../Image/Banner/Desktop/3.jpeg"),
-  },
-  {
     image: require("../../Image/Banner/Desktop/4.jpeg"),
   },
 ];
@@ -44,7 +41,7 @@ export default function HeroSlider() {
         autoPlay={true}
         indicators={false}
         animation="slide"
-        interval={5000}
+        interval={2000}
         timeout={500}
         cycleNavigation={true}
         fullHeightHover={false}

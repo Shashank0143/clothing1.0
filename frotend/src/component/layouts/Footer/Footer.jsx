@@ -226,7 +226,7 @@ const Footer = () => {
                   <p>
                     &copy; Copyright {currYear} | P&HBYPRIYANSHU PVT Ltd, All Rights Reserved.
                     <span>
-                      <a href="/" style={{ color: "white", fontSize:"smaller"}}> | Developed by Softiwo</a>
+                      <a href="https://www.linkedin.com/in/shashank-meena-8aa55623a" style={{ color: "white", fontSize:"smaller"}}> | Developed by Shashank</a>
                     </span>
                   </p>
                 </div>

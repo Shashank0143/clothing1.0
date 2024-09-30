@@ -1,9 +1,8 @@
 .trending_heading {
-
   text-align: center;
   margin-top: 2.7rem;
   margin-bottom: 20px;
-  font-family: "Archivo", sans-serif;
+  text-transform: uppercase;
 }
 .headerblank{
   height: 80px;
@@ -38,6 +37,9 @@
   .trending-products {
     grid-template-columns: repeat(2, 1fr); /* Two products per row on mobile */
     gap: .3rem;
+  }
+  .trending_heading{
+    font-size: small;
   }
 }
 

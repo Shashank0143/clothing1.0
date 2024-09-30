@@ -304,20 +304,18 @@ function CartItem({
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Custom Tailored Details</DialogTitle>
         <DialogContent>
-          <Typography variant="body2">Shoulder: {item.measurements?.Shoulder || "N/A"}</Typography>
-          <Typography variant="body2">Waist to Knee: {item.measurements?.WaistToKnee || "N/A"}</Typography>
-          <Typography variant="body2">Chest: {item.measurements?.Chest || "N/A"}</Typography>
-          <Typography variant="body2">Knee Line: {item.measurements?.KneeLine || "N/A"}</Typography>
-          <Typography variant="body2">Front Shoulder to Waist: {item.measurements?.FrontShoulderToWaist || "N/A"}</Typography>
-          <Typography variant="body2">Neck Circumference: {item.measurements?.NeckCircumference || "N/A"}</Typography>
-          <Typography variant="body2">Waist: {item.measurements?.Waist || "N/A"}</Typography>
-          <Typography variant="body2">Nape to Waist: {item.measurements?.NapeToWaist || "N/A"}</Typography>
-          <Typography variant="body2">Arm Length: {item.measurements?.ArmLength || "N/A"}</Typography>
-          <Typography variant="body2">Back Width: {item.measurements?.BackWidth || "N/A"}</Typography>
+        <Typography variant="body2">Length(लंबाई): {item.measurements?.Length || "N/A"}</Typography>
+          <Typography variant="body2">Shoulder(कंधा): {item.measurements?.shoulder || "N/A"}</Typography>
+          <Typography variant="body2">Chest(छाती): {item.measurements?.chest || "N/A"}</Typography>
+          <Typography variant="body2">Stomach(पेट): {item.measurements?.stomach || "N/A"}</Typography>
+          <Typography variant="body2">Sleeves(आस्तीन): {item.measurements?.sleeves || "N/A"}</Typography>
           <Typography variant="body2">Hip: {item.measurements?.Hip || "N/A"}</Typography>
-          <Typography variant="body2">Top Arm Circumference: {item.measurements?.TopArmCircumference || "N/A"}</Typography>
-          <Typography variant="body2">Crotch Depth: {item.measurements?.CrotchDepth || "N/A"}</Typography>
-          <Typography variant="body2">Waist to Floor: {item.measurements?.WaistToFloor || "N/A"}</Typography>
+          <Typography variant="body2">Traousers length(पतलून की लंबाई): {item.measurements?.traouserLength || "N/A"}</Typography>
+          <Typography variant="body2">Waist(कमर): {item.measurements?.waist || "N/A"}</Typography>
+          <Typography variant="body2">Trouser Hip: {item.measurements?.trouserHip || "N/A"}</Typography>
+          <Typography variant="body2">Thigh(जाँघ): {item.measurements?.thigh || "N/A"}</Typography>
+          <Typography variant="body2">Knee(घुटना): {item.measurements?.knee || "N/A"}</Typography>
+          <Typography variant="body2">Hem(मोहरी): {item.measurements?.hem || "N/A"}</Typography>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

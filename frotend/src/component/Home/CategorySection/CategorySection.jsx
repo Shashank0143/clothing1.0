@@ -44,7 +44,7 @@ function CategorySection() {
 
   return (
     <div className="category-section">
-      <h2>SHOP BY CATEGORY</h2>
+      <h2 className="cormorant-garamond-medium">SHOP BY CATEGORY</h2>
       <div className="slider-container">
         <button className="prev-button" onClick={handlePrev}>
         &larr;

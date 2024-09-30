@@ -462,20 +462,18 @@ const classes = useStyles();
           <Dialog open = {openCustomDialog} onClose={handleCloseCustomDialog}>
             <DialogTitle>Custom Tailored</DialogTitle>
             <DialogContent>
-              <Typography variant="body2" >Shoulder:{product.measurements?.Shoulder || "N/A"}</Typography>
-              <Typography variant="body2" >Waist to Knee::{product.measurements?.WaistToKnee || "N/A"}</Typography>
-              <Typography variant="body2" >Chest:{product.measurements?.Chest || "N/A"}</Typography>
-              <Typography variant="body2" >Knee Line:{product.measurements?.KneeLine || "N/A"}</Typography>
-              <Typography variant="body2" >Front Shoulder to Waist:{product.measurements?.FrontShoulderToWaist || "N/A"}</Typography>
-              <Typography variant="body2" >Neck Circumference:{product.measurements?.NeckCircumference || "N/A"}</Typography>
-              <Typography variant="body2" >Waist:{product.measurements?.Waist || "N/A"}</Typography>
-              <Typography variant="body2" >Nape to Waist:{product.measurements?.NapeToWaist || "N/A"}</Typography>
-              <Typography variant="body2" >Arm Length:{product.measurements?.ArmLength || "N/A"}</Typography>
-              <Typography variant="body2" >Back Width:{product.measurements?.BackWidth || "N/A"}</Typography>
-              <Typography variant="body2" >Hip:{product.measurements?.Hip || "N/A"}</Typography>
-              <Typography variant="body2" >Top Arm Circumference:{product.measurements?.TopArmCircumference || "N/A"}</Typography>
-              <Typography variant="body2" >Crotch Depth:{product.measurements?.CrotchDepth || "N/A"}</Typography>
-              <Typography variant="body2" >Waist to Floor:{product.measurements?.WaistToFloor || "N/A"}</Typography>
+        <Typography variant="body2">Length(लंबाई): {product.measurements?.Length || "N/A"}</Typography>
+          <Typography variant="body2">Shoulder(कंधा): {product.measurements?.shoulder || "N/A"}</Typography>
+          <Typography variant="body2">Chest(छाती): {product.measurements?.chest || "N/A"}</Typography>
+          <Typography variant="body2">Stomach(पेट): {product.measurements?.stomach || "N/A"}</Typography>
+          <Typography variant="body2">Sleeves(आस्तीन): {product.measurements?.sleeves || "N/A"}</Typography>
+          <Typography variant="body2">Hip: {product.measurements?.Hip || "N/A"}</Typography>
+          <Typography variant="body2">Traousers length(पतलून की लंबाई): {product.measurements?.traouserLength || "N/A"}</Typography>
+          <Typography variant="body2">Waist(कमर): {product.measurements?.waist || "N/A"}</Typography>
+          <Typography variant="body2">Trouser Hip: {product.measurements?.trouserHip || "N/A"}</Typography>
+          <Typography variant="body2">Thigh(जाँघ): {product.measurements?.thigh || "N/A"}</Typography>
+          <Typography variant="body2">Knee(घुटना): {product.measurements?.knee || "N/A"}</Typography>
+          <Typography variant="body2">Hem(मोहरी): {product.measurements?.hem || "N/A"}</Typography>
             </DialogContent>
             <DialogActions>
               <Button onClick={handleCloseCustomDialog} color="primary">

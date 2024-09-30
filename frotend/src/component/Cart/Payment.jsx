@@ -545,7 +545,7 @@ const PaymentComponent = () => {
                     <OrderDetailsSection
                       key={idx}
                       item={item}
-                      totalDiscount={totalDiscount}
+                      totalDiscount={finalmoney}
                       totalPrice={totalPrice}
                     />
                   </Link>

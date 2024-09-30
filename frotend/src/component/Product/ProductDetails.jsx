@@ -60,7 +60,7 @@ useEffect(() => {
     window.location.reload();
   }
 }, []);
-
+  
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -255,9 +255,6 @@ useEffect(() => {
                         We deliver! Just say when and how.
                       </div>
                     </div>
-                    <CustomTailoredButton
-                      onMeasurementsChange={handleMeasurementsChange}
-                    />
                     <div className="seprator2"></div>
 
                     <div className="prod_details_sizes">
@@ -283,6 +280,9 @@ useEffect(() => {
                         <p>No sizes available</p>
                       )}
                     </div>
+                    <CustomTailoredButton
+                      onMeasurementsChange={handleMeasurementsChange}
+                    />
 
                     <div className="seprator2"></div>
 

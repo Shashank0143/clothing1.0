@@ -85,7 +85,7 @@ function Products() {
     setSelectedRating(event.target.value);
     // Trigger filtering with the selected rating value or perform any other action
 
-  };
+  }; 
 
 
 

@@ -299,6 +299,9 @@
   .products1 {
     grid-template-columns: repeat(1, 1fr);
   }
+  .filterBox{
+    display: none;
+  }
 }
 
 
@@ -312,8 +315,8 @@
   }
 
   .filterBox {
-    width: 70%;
-    margin: 1rem 0 0 0;
+
+    display: none;
   }
 
   .products {

@@ -68,21 +68,32 @@ exports.getAllProducts = asyncWrapper(async (req, res) => {
     .search() // Apply search filter based on the query parameters
     .filter(); // Apply additional filters based on the query parameters
 
-  let products = await apiFeature.query; // Fetch the products based on the applied filters and search
+  //let products = await apiFeature.query; // Fetch the products based on the applied filters and search
 
-  let filteredProductCount = products.length; // Number of products after filtering (for pagination)
+  let products
+  //let filteredProductCount = products.length; // Number of products after filtering (for pagination)
 
-  apiFeature.Pagination(resultPerPage); // Apply pagination to the products
+  // apiFeature.Pagination(resultPerPage); // Apply pagination to the products
+
+    // Check if 'fetchAll' query parameter is present
+    if (req.query.fetchAll === 'true') {
+      products = await ProductModel.find(); // Fetch all products without pagination
+    } else {
+      products = await apiFeature.query;
+      let filteredProductCount = products.length;
+  
+      apiFeature.Pagination(resultPerPage);
+      products = await apiFeature.query.clone(); // Apply pagination if fetchAll is not true
+    }
 
   // Mongoose no longer allows executing the same query object twice, so use .clone() to retrieve the products again
-  products = await apiFeature.query.clone(); // Retrieve the paginated products
+  // products = await apiFeature.query.clone(); // Retrieve the paginated products
 
   res.status(201).json({
     success: true,
     products: products,
     productsCount: productsCount,
     resultPerPage: resultPerPage,
-    filteredProductCount: filteredProductCount,
   });
 });
 

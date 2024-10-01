@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./Home.css";
 import ProductCard from "./ProductCard";
 import MataData from "../layouts/MataData/MataData";
@@ -20,12 +20,43 @@ function Home() {
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
 
+    // State to hold the shuffled products
+    const [shuffledProducts, setShuffledProducts] = useState([]);
+
+    useEffect(() => {
+      // Function to shuffle the products array
+      const shuffleArray = (array) => {
+        let shuffledArray = array.slice(); // Create a copy of the array
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+      };
+  
+      // Function to update shuffled products
+      const updateShuffledProducts = () => {
+        if (products) {
+          const shuffled = shuffleArray(products);
+          setShuffledProducts(shuffled.slice(0, 4)); // Set the first 4 shuffled products
+        }
+      };
+  
+      if (products) {
+        updateShuffledProducts(); // Shuffle immediately on first load
+        const intervalId = setInterval(updateShuffledProducts, 3600000); // 3600000 ms = 1 hour
+  
+        return () => clearInterval(intervalId); // Clear interval on component unmount
+      }
+    }, [products]);
+
+
   React.useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors);
     }
-    dispatch(getProduct());
+    dispatch(getProduct("",1,[0, 100000],"",0,true));
   }, [dispatch, error, alert]);
 
   return (
@@ -62,16 +93,9 @@ function Home() {
               </div>
               <h1 className="trending_heading cormorant-garamond-regular">Shop Our Customize suits designs in your size</h1>
               <div className="trending-products">
-              {products &&
-                  products
-                  .slice()
-                  .sort(
-                    (a, b) => 
-                      new Date(b.createdAt) - new Date(a.createdAt))
-                    .slice(0,4)
-                    .map((product) => (
-                    <ProductCard key={product._id} product={product}/>
-                  ))}
+              {shuffledProducts.map((products) => (
+                <ProductCard key={products._id} product={products} />
+              ))}
               </div>
               
             </div>

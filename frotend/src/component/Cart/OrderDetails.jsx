@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import {Dialog,DialogTitle,DialogContent,DialogActions, Button} from "@material-ui/core";
+import { dispalyMoney } from "../DisplayMoney/DisplayMoney";
 const useStyles = makeStyles((theme) => ({
   rootPayment: {
     width: "100%",
@@ -111,10 +112,10 @@ const OrderDetailsSection = ({ item, totalDiscount, totalPrice }) => {
         </Typography>
         <div className={classes.priceContainer}>
           <Typography variant="body2" className={classes.finalPrice}>
-            {totalDiscount}
+            {dispalyMoney(totalDiscount)}
           </Typography>
           <Typography variant="body2" className={classes.discountPrice}>
-          {totalPrice}
+          {dispalyMoney(totalPrice)}
           </Typography>
         </div>
         {/* <div>

@@ -72,8 +72,14 @@ const Cart = () => {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  let length = cartItems.length
   let discount = cartItems.reduce(
-    (acc, item) => acc + item.discount, 0
+    (acc, item) => acc + item.discount / length, 0
+  )
+
+  console.log(
+    "Total Price: ", totalPrice,
+    "Discount: ", discount,
   )
   let discountedPrice = generateDiscountedPrice(totalPrice, discount);
   let totalDiscount = totalPrice - discountedPrice;

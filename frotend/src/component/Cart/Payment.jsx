@@ -397,9 +397,16 @@ const PaymentComponent = () => {
     0
   );
 
+  let length = cartItems.length
+
   let discount = cartItems.reduce(
-    (acc, item) => acc + item.discount,
+    (acc, item) => acc + item.discount / length,
     0
+  )
+
+  console.log(
+    "Total Price: ", totalPrice,
+    "Discount: ",discount,
   )
 
   let discountedPrice = generateDiscountedPrice(totalPrice, discount);
@@ -524,6 +531,10 @@ const PaymentComponent = () => {
     }
   }, [dispatch, alert, error]);
 
+  let quantity = cartItems.reduce(
+    (acc, item) => acc + item.quantity,0
+  )
+
 
   return (
     <>
@@ -548,8 +559,8 @@ const PaymentComponent = () => {
                     <OrderDetailsSection
                       key={idx}
                       item={item}
-                      totalDiscount={finalmoney}
-                      totalPrice={totalPrice}
+                      totalDiscount={generateDiscountedPrice(item.price, item.discount)}
+                      totalPrice={item.price}
                     />
                   </Link>
                 ))}
@@ -617,8 +628,8 @@ const PaymentComponent = () => {
           <div className={classes.payemntAmount}>
             <div className="order_summary">
               <h4>
-                Order Summary &nbsp; ( {cartItems.length}{" "}
-                {cartItems.length > 1 ? "items" : "item"} )
+                Order Summary &nbsp; ( {quantity}{" "}
+                {quantity > 1 ? "items" : "item"} )
               </h4>
               <div className="order_summary_details">
                 <div className="price order_Summary_Item" style={{ marginTop: "3px" }} >

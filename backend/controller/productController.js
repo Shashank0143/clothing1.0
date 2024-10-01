@@ -77,10 +77,12 @@ exports.getAllProducts = asyncWrapper(async (req, res) => {
 
     // Check if 'fetchAll' query parameter is present
     if (req.query.fetchAll === 'true') {
-      products = await ProductModel.find(); // Fetch all products without pagination
+      products = await ProductModel.find().sort({createdAt: -1}); // Fetch all products without pagination
     } else {
       products = await apiFeature.query;
       let filteredProductCount = products.length;
+
+      apiFeature.query = apiFeature.query.sort({ createdAt: -1 });
   
       apiFeature.Pagination(resultPerPage);
       products = await apiFeature.query.clone(); // Apply pagination if fetchAll is not true

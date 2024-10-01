@@ -7,12 +7,13 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     gap: "2.5rem",
-    padding: "1rem 0rem 0rem 0rem",
+    padding: ".5rem 0rem .5rem 0rem",
     },
   image: {
-    width: "155px",
-    height: "140px",
+    width: "180px",
+    height: "230px",
     objectFit: "cover",
+    marginLeft: "-10px", 
     [theme.breakpoints.down(899)]: {
       width: "255px",
       height: "240px",
@@ -22,11 +23,15 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     display: "flex",
     flexDirection: "column",
+    marginLeft: "-20px",
   },
   productName: {
     fontWeight: "500",
     fontSize: "18px",
     marginBottom: theme.spacing(1),
+    [theme.breakpoints.down(899)]:{
+      fontSize:"12px",
+    }
   },
   quantity: {
     fontSize: 16,

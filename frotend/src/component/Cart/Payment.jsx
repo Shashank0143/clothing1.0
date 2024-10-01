@@ -84,6 +84,9 @@ const useStyles = makeStyles((theme) => ({
     "& svg": {
       fontSize: "2rem",
     },
+    [theme.breakpoints.down(899)]:{
+      marginLeft:"-10px",
+    }
   },
   icons: {
     display: "flex",
@@ -526,8 +529,8 @@ const PaymentComponent = () => {
     <>
       <div className={classes.payemntPage}>
         <CheckoutSteps activeStep={2} />
-        <MetaData title={"Payment"} 
-        link="https://www.phbypriyanshu.com/process/payment"/>
+        <MetaData title={"Payment"}
+          link="https://www.phbypriyanshu.com/process/payment" />
 
         <div className={classes.paymentPage__container}>
           <div className={classes.PaymentBox}>
@@ -587,6 +590,18 @@ const PaymentComponent = () => {
                   <FormControlLabel value="cod" control={<Radio />} label="Cash on Delivery (COD)" />
                 )}
               </RadioGroup>
+              {paymentMethod === "cod" && (
+                <Typography
+                  variant="body2"
+                  style={{
+                    color: "red",
+                    marginTop: "10px",
+                    fontWeight: "bold"
+                  }}
+                >
+                  COD orders may be subject to additional verification delays.
+                </Typography>
+              )}
             </FormControl>
             <Button
               variant="contained"

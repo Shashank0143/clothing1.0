@@ -63,7 +63,7 @@ export default function Login() {
       : "/account";
    useEffect(() => {
      if (error) {
-       alert.error("Invalid email and passowrd");
+       alert.error("Invalid email and passowrd, or create an account");
        dispatch(clearErrors());
      }
 

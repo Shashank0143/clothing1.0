@@ -21,7 +21,7 @@ exports.registerUser = asyncWrapper(async (req, res) => {
   const user = await userModel.create({
     name,
     password,
-    email,
+    email, 
     avatar: {
       public_id: myCloud.public_id,
       url: myCloud.secure_url,

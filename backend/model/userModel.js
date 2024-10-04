@@ -28,11 +28,11 @@ const userSchema = new mongoose.Schema({
   avatar: {
     public_id: {
       type: String,
-      required: [true,"Please upload an image"],
+      required: [false,"Please upload an image"],
     },
     url: {
       type: String,
-      required: [true,"Please uplaod an image"],
+      required: [false,"Please uplaod an image"],
     },
   },
   role: {

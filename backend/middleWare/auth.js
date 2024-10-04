@@ -10,8 +10,9 @@ exports.isAuthentictedUser = asyncWrapper(async (req, res, next) => {
 
     // If there is no token found
     if (!token) {
-        req.user.id = null;
+        // req.user.id = null;
         console.log("No token found, sending 401 error");
+        return next(new ErrorHandler("Please log in to access this resource", 401));
     }
 
     try {

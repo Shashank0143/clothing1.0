@@ -20,7 +20,7 @@ import useStyles from "./LoginFromStyle";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-
+import avatard from "../../Image/avatar/avatar.png"
 function Signup() {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
@@ -56,7 +56,7 @@ function Signup() {
       alert.success("User Registered Successfully");
       history.push("/account");
     }
-  }, [dispatch, isAuthenticated, loading, error, alert , history]);
+  }, [dispatch, isAuthenticated, loading, error, alert, history]);
 
   const handleEmailChange = (event) => {
     const newEmail = event.target.value;
@@ -75,7 +75,7 @@ function Signup() {
       reader.onload = () => {
         setAvatarPreview(reader.result);
         setAvatar(reader.result);
-    
+
       };
     }
   };
@@ -87,7 +87,7 @@ function Signup() {
   };
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-      setIsValidPassword(event.target.value.length >= 8);
+    setIsValidPassword(event.target.value.length >= 8);
   };
   const handleConfirmPasswordChange = (event) => {
     setconfirmPassword(event.target.value);
@@ -116,9 +116,9 @@ function Signup() {
   );
 
   function handleSignUpSubmit(e) {
-      setLoading(true);
+    setLoading(true);
     e.preventDefault();
-  
+
 
     if (password !== confirmPassword) {
       alert.error("Password and Confirm Password do not match");
@@ -130,14 +130,14 @@ function Signup() {
     formData.set("name", name);
     formData.set("email", email);
     formData.set("password", password);
-    
-    if(avatar) {
+
+    if (avatar) {
       formData.set("avatar", avatar);
-    }else{
-       formData.set(
+    } else {
+      formData.set(
         "avatar",
-        "https://res.cloudinary.com/dqs8r9imj/image/upload/v1724142297/Avatar/fvuhvytppsp9ptppy5wn.png"
-       )
+        avatard
+      )
     }
 
     dispatch(signUp(formData));
@@ -156,7 +156,7 @@ function Signup() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography variant="h5" component="h1" className={classes.heading}>
-              Sign Up for an Account ! 
+              Sign Up for an Account !
             </Typography>
             <TextField
               label="Name"
@@ -192,7 +192,7 @@ function Signup() {
               fullWidth
               className={`${classes.passwordInput} ${classes.textField}`}
               error={!isValidPassword && password !== ""}
-               helperText={ !isValidPassword && password !== "" ? "Password must be at least 8 characters." : ""}
+              helperText={!isValidPassword && password !== "" ? "Password must be at least 8 characters." : ""}
               InputProps={{
                 endAdornment: (
                   <Button
@@ -200,7 +200,7 @@ function Signup() {
                     className={classes.showPasswordButton}
                     onClick={handleShowPasswordClick}
                   >
-                    {showPassword ? <VisibilityOff sx={{width:"20px"}} /> : <Visibility sx={{width:"20px"}} />}
+                    {showPassword ? <VisibilityOff sx={{ width: "20px" }} /> : <Visibility sx={{ width: "20px" }} />}
                   </Button>
                 ),
               }}
@@ -220,7 +220,7 @@ function Signup() {
                     className={classes.showPasswordButton}
                     onClick={handleShowPasswordClick}
                   >
-                    {showPassword ? <VisibilityOff sx={{width:"20px"}} /> : <Visibility sx={{width:"20px"}}/>}
+                    {showPassword ? <VisibilityOff sx={{ width: "20px" }} /> : <Visibility sx={{ width: "20px" }} />}
                   </Button>
                 ),
               }}

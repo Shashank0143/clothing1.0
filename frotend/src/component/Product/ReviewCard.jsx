@@ -82,7 +82,7 @@ const ReviewCard = ({ product }) => {
         <Grid item className={classes.ratingContainer}>
           <Rating
             value={product.ratings}
-            precision={0.5}
+            precision={1}
             readOnly
             className={classes.star}
           />

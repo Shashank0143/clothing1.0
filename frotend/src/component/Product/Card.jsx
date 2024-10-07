@@ -91,8 +91,8 @@ const useStyles = makeStyles((theme) => ({
 const MyCard = ({ review }) => {
   const classes = useStyles();
 
-  const [helpful, setHelpful] = useState(10);
-  const [unhelpful, setUnHelpful] = useState(5);
+  const [helpful, setHelpful] = useState(1);
+  const [unhelpful, setUnHelpful] = useState(0);
   const [helpfulClicked, setHelpfulClicked] = useState(false);
   const [unhelpfulClicked, setUnhelpfulClicked] = useState(false);
 
@@ -149,7 +149,7 @@ const MyCard = ({ review }) => {
       </div>
       <div>
         <Rating
-          value={4}
+          value={review.ratings}
           precision={0.5}
           size="midium"
           readOnly

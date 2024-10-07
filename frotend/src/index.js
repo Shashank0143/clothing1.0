@@ -15,7 +15,7 @@ const options = {
   transition: transitions.SCALE,
 };
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <>
     {/* Wrap the entire application with BrowserRouter */}
     <BrowserRouter>

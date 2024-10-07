@@ -7,7 +7,7 @@ const crypto = require("crypto");
 const cloudinary = require("cloudinary");
 
 
-// signUp controller>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// signUp controller >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.registerUser = asyncWrapper(async (req, res) => {
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "Avatar", // this folder cloudainry data base manage by us
@@ -31,6 +31,7 @@ exports.registerUser = asyncWrapper(async (req, res) => {
   // sending the res and staus code along with token using sendJWtToken method
   sendJWtToken(user, 201, res);
 });
+
 
 // Login User >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.loginUser = asyncWrapper(async (req, res, next) => {
